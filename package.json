@@ -1,0 +1,20 @@
+{
+  "name": "project-01",
+  "version": "1.0.0",
+  "description": "my app for project 1",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mleon195/project-01.git"
+  },
+  "author": "Marcelo Leon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mleon195/project-01/issues"
+  },
+  "homepage": "https://github.com/Mleon195/project-01#readme"
+}

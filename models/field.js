@@ -1,6 +1,9 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
+var Review = require('./review')
+
+
 //Schema for SF soccer fields
 var FieldSchema = new Schema({
   name: String,
@@ -8,9 +11,10 @@ var FieldSchema = new Schema({
   size: String,
   condition: String,
   surface: String,
-  maintain: Boolean,
+  maintained: Boolean,
   bathroom: Boolean,
-  parking_lot: Boolean
+  parking_lot: Boolean,
+  reviews: [Review.schema]
 
 });
 
