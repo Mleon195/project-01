@@ -1,10 +1,10 @@
 var mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost/project-01_test");
 
-var Album = require('./primary');
+var Field = require('./field');
 
-module.exports.Primary = Primary;
+module.exports.Field = Field;
 
 
-//module.exports.Albums = require('./albums.js');
-//module.exports.Song = require('./song.js');
+//module.exports.Field = require('./field.js');
+//module.exports.Review = require('./review.js');

@@ -33,12 +33,12 @@ app.get('/elephant', function homepage(req, res) {
  * API ENDPOINTS
  */
 /* GET ALL Primary DB Entries */
-app.get('/api/primary', function sanity(req, res) {
+app.get('/api/field', function sanity(req, res) {
 
-  database.Primary.find( {}, function getAllPrimaries(err, allPrimaries){
+  database.Field.find( {}, function getAllFields(err, allFields){
     if (err) { return console.log('ERROR', err); }
 
-    res.json(allPrimaries);
+    res.json(allFields);
   });
 
 });

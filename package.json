@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/Mleon195/project-01/issues"
   },
-  "homepage": "https://github.com/Mleon195/project-01#readme"
+  "homepage": "https://github.com/Mleon195/project-01#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "mongoose": "^4.4.11"
+  }
 }
