@@ -27,20 +27,34 @@
 <body>
   <div class="container">
     <div class="jumbotron">
+      <div class="page-header">
       <h1>SF Soccer Fields</h1>
-      <p>"Soccer is simple, but it is dificult to play simple." Johan Cruyff</p>
+      <p>"Soccer is simple, but it is dificult to play simple." <br>Johan Cruyff</p>
     </div>
+    </div>
+
     <!-- Text for Reviews    -->
 
-    <div id="text-review"><p>Write reviews.</p>
-    <select class="c-select">
-      <option selected>Open this select menu</option>
-      <option value="1">One</option>
-      
-    </select>
+       <div id="text-review"><p>Write reviews.</p>
 
+         <div id="field"></div>
 
-    </div>
+         <script id='review-template' type='text/x-handlebars-template'>
+           <form id="review">
+           <select class="c-select" name="fieldId">
+             <option selected>Choose a Field to review</option>
+             {{#each fields}}
+             <option value="{{_id}}">{{name}}</option>
+             {{/each}}
+          </select>
+          <p>Reviews</p>
+
+              <textarea rows="4" cols="50" name="text">
+              Write a review here.
+            </textarea>
+          </form>
+        </script>
+        </div>
 
     <!--placeholder for images-->
     <div id="pic"><p>Placeholder for soccer pictures.</p><div>

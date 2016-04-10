@@ -32,8 +32,8 @@ app.get('/elephant', function homepage(req, res) {
 /*
  * API ENDPOINTS
  */
-/* GET ALL Primary DB Entries */
-app.get('/api/field', function sanity(req, res) {
+/* GET ALL FILEDS DB Entries */
+app.get('/api/fields', function sanity(req, res) {
 
   database.Field.find( {}, function getAllFields(err, allFields){
     if (err) { return console.log('ERROR', err); }
@@ -42,6 +42,20 @@ app.get('/api/field', function sanity(req, res) {
   });
 
 });
+/*
+ * JSON API Endpoints
+ */
+
+//app.get('/api', controllers.api.index);
+
+//app.get('/api/field', controllers.fields.index);
+//app.get('/api/field/:fieldId', controllers.field.show);
+//app.post('/api/albums', controllers.field.create);
+//app.post('/api/albums/:albumId/', controllers..create);
+
+
+
+
 
 
 

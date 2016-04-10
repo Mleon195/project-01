@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-var Review = require('./review')
+var Review = require('./review');
 
 
 //Schema for SF soccer fields

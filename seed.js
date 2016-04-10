@@ -1,7 +1,7 @@
 var db = require("./models");
 
 
-var field = [
+var fieldList = [
   {
     name: 'Golden Gate Park Polo Field',
     location: 'Golden Gate Park',
@@ -11,7 +11,12 @@ var field = [
     maintained: 'periodically',
     bathroom: true,
     parking_lot: true,
-    reviews: [Review.schema]
+    reviews: [{
+      name: "Pat",
+      text: "good",
+      date: "4/4",
+      coach: false
+    }]
 },
   {
     name: 'Rossi Playground',
@@ -22,7 +27,12 @@ var field = [
     maintained: 'frequenly',
     bathroom: true,
     parking_lot: true,
-    reviews: [Review.schema]
+    reviews: [{
+      name: "Pat",
+      text: "good",
+      date: "4/4",
+      coach: false
+    }]
   },
   {
     name: 'Beach Chalet',
@@ -33,7 +43,12 @@ var field = [
     maintained: 'frequenly',
     bathroom: true,
     parking_lot: true,
-    reviews: [Review.schema]
+    reviews: [{
+      name: "Pat",
+      text: "good",
+      date: "4/4",
+      coach: false
+    }]
   },
   {
     name: 'Grattan',
@@ -44,7 +59,12 @@ var field = [
     maintained: 'periodically',
     bathroom: false,
     parking_lot: false,
-    reviews: [Review.schema]
+    reviews: [{
+      name: "Pat",
+      text: "good",
+      date: "4/4",
+      coach: false
+    }]
   },
   {
     name: 'Garfield',
@@ -55,7 +75,12 @@ var field = [
     maintained: 'regularly',
     bathroom: false,
     parking_lot: false,
-    reviews: [Review.schema]
+    reviews: [{
+      name: "Pat",
+      text: "good",
+      date: "4/4",
+      coach: false
+    }]
   },
   {
     name: 'West Sunset',
@@ -66,6 +91,23 @@ var field = [
     maintain: 'rarely',
     bathroom: true,
     parking_lot: false,
-    reviews: [Review.schema]
+    reviews: [{
+      name: "Pat",
+      text: "good",
+      date: "4/4",
+      coach: false
+    }]
   }
 ];
+
+
+db.Field.remove({}, function(err, review){
+
+  db.Field.create(fieldList, function(err, fields){
+    if (err) { return console.log('ERROR', err); }
+    console.log("all fields:", fields);
+    console.log("created", fields.length, "fields");
+    process.exit();
+  });
+
+});
