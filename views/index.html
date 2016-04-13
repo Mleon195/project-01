@@ -20,6 +20,8 @@
 
  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
 
+<script src="scripts/seed.js"></script>
+
  <!-- APPLICATION SCRIPTS -->
  <script src="scripts/app.js"></script>
 </head>
@@ -29,35 +31,48 @@
     <div class="jumbotron">
       <div class="page-header">
       <h1>SF Soccer Fields</h1>
+      <br>
+      <br>
       <p>"Soccer is simple, but it is dificult to play simple." <br>Johan Cruyff</p>
     </div>
     </div>
 
     <!-- Text for Reviews    -->
 
-       <div id="text-review"><p>Write reviews.</p>
+       <div id="text-review"><p>Read reviews for Soccer Fields.</p>
 
-         <div id="field"></div>
-
-         <script id='review-template' type='text/x-handlebars-template'>
-           <form id="review">
-           <select class="c-select" name="fieldId">
+      <div id="field">
+          <script id='field-template' type='text/x-handlebars-template'>
+            <form id="fields">
+              <select id="select"class="c-select" name="fieldId">
              <option selected>Choose a Field to review</option>
              {{#each fields}}
-             <option value="{{_id}}">{{name}}</option>
+             <option value="{{name}}">{{name}}</option>     //"570ac9f5c61820956e767eb4"
              {{/each}}
-          </select>
-          <p>Reviews</p>
-
-              <textarea rows="4" cols="50" name="text">
-              Write a review here.
-            </textarea>
+              </select>
           </form>
         </script>
+      </div>
+
+
+        <div id="reviews">
+          <h3>Reviews</h3>
+              <script id='review-template' type='text/x-handlebars-template'>
+
+              {{#each reviews}}
+              <p>{{@field}}:{{text}}</p>
+              {{/each}}
+
+            </script>
         </div>
 
+        </div>
+
+
+
+    <a href="/second">Add a review</a>
     <!--placeholder for images-->
-    <div id="pic"><p>Placeholder for soccer pictures.</p><div>
+    <!--<div id="pic"><p>Placeholder for soccer pictures.</p><div> -->
   </div>
 
 </body>

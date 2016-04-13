@@ -4,6 +4,12 @@
  *
  */
 
+ /* CLIENT-SIDE JS
+ *
+ * This page control behaviors on the front-end.
+ *
+ */
+
  //$.ajax ({
  //   method: 'GET',
  //   url: 'api/fields',
@@ -17,29 +23,89 @@ function ajaxError(data){
 
 function renderS(data){
   console.log('rendering data', data);
-  var fieldHtml = $('#review-template').html();
+  var fieldHtml = $('#field-template').html();
   var fieldTemplate = Handlebars.compile(fieldHtml);
   var html = fieldTemplate({fields: data});
   console.log(html);
   $('#field').prepend(html);
 
 }
+// serialize select box in homepage
 
 
+// function addSelectorListner(){
+//   $('#select').change( function(e) {
+//     e.preventDefault();
+//     // var formData = $(this).serialize();
+//     // console.log("this is selected", $(this).serialize());
+//     var selectedField = $('#select option:selected').text();
+//     // var flist = fieldList[i];
+//     if(flist.name === selectedField){
+//       // console.log("(43) Field name is" + flist.reviews);
+//       for (var i = 0; i < fieldList.length; i++) {
+//       // console.log(flist)
+//       // console.log(fieldList[i].name);
+//         console.log("Field name is " + flist.name);
+//          console.log("Hello");
+//         //  for (var i = 0; i < fieldList.length; i++) {
+//            console.log(fieldList[i].reviews[0].text);
+//            renderReviews(fieldList[i].reviews[0].text);
+//         //  }
+//       }
+//     }
+//     console.log(selectedField);//('formData', formData);
+//
+//
+//     $(this).trigger("reset");
+//   });
+// }
+
+function addSelectorListner(){
+  $('#select').change( function(e) {
+    for (var i = 0; i < fieldList.length; i++) {
+      if (fieldList2[i].name === $(this).val()) {
+        console.log(fieldList2[i].reviews.text);
+      }
+    }
+  });
+}
+
+//populate the review section on the homepage
+function renderReviews(review){
+  console.log('rendering data', review);
+  var reviewHtml = $('#review-template').html();
+  var reviewTemplate = Handlebars.compile(reviewHtml);
+  var html = reviewTemplate({reviews: reviews});
+  console.log(html);
+  $('#reviews').prepend(html);
+
+}
+
+
+
+
+var fieldList;
 $(document).ready(function() {
   console.log('app.js loaded!');
   $.get('/api/fields').success(function (fields){
+      fieldList = fields;
       renderS(fields);
+      addSelectorListner();
   });
 
 });
 
-$('#select').on('select', function(e) {
-    e.preventDefault();
-    var formData = $(this).serialize();
-    console.log('formData', formData);
-    $.post('/api/field', formData, function(field) {
-      renderAlbum(field);  //render the server's response
-    });
-    $(this).trigger("reset");
-  });
+
+
+
+
+
+// this function takes reviews and renders it to the page
+// catch and handle the click on an add review button
+  //$('#review').on('click', '.add-review', handleAddReviewClick);
+
+  // save review save button
+  //$('#saveReview').on('click', handleNewReviewSubmit);
+//});
+
+// create new reviews

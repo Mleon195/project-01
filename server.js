@@ -20,10 +20,9 @@ app.get('/', function homepage(req, res) {
   console.log(__dirname);
   res.sendFile(__dirname + '/views/index.html');
 });
-
-app.get('/elephant', function homepage(req, res) {
-  console.log(__dirname);
-  res.sendFile(__dirname + '/views/elephant.html');
+//second page to write reviews
+app.get('/second', function homepage(req, res) {
+  res.sendFile(__dirname + '/views/second.html');
 });
 
 
@@ -42,6 +41,42 @@ app.get('/api/fields', function sanity(req, res) {
   });
 
 });
+//links to second page
+app.get('/second', function homepage(req, res) {
+  console.log(__dirname);
+  res.sendFile(__dirname + ' sviews/second.html');
+});
+
+//POST /api/reviews
+app.post('/api/reviews', function reviewCreate(req, res){
+    console.log('body', req.body);
+    db.Review.create(req.body, function(err, review) {
+      if (err){
+        console.log('error', err);
+      }
+      console.log(review);
+      res.json(review);
+    });
+});
+
+//UPDATE Review
+app.put('/api/review/:id', function updateReview(req, res){
+  console.log('body', req.body);
+  db.Review.findOne({_id: req.params.id}, function(error, review){
+    if(error) {console.log('error', error); }
+    review.nameField = req.body.nameField;
+    review.textReview = req.body.textReview;
+    review.save(function (error, saved) {
+    if (error) { console.log('Could not update review: ' + error); }
+    res.json(saved);
+          });
+      });
+});
+
+
+
+
+
 /*
  * JSON API Endpoints
  */

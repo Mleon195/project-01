@@ -1,7 +1,7 @@
-var db = require("./models");
+//var db = require("./models");
 
 
-var fieldList = [
+var fieldList2 = [
   {
     name: 'Golden Gate Park Polo Field',
     location: 'Golden Gate Park',
@@ -101,13 +101,13 @@ var fieldList = [
 ];
 
 
-db.Field.remove({}, function(err, fields){
-
-  db.Field.create(fieldList, function(err, newFields){
-    if (err) { return console.log('ERROR', err); }
-    console.log("all fields:", newFields);
-    console.log("created", fields.length, "fields");
-    process.exit();
-  });
-
-});
+// db.Field.remove({}, function(err, fields){
+//
+//   db.Field.create(fieldList, function(err, newFields){
+//     if (err) { return console.log('ERROR', err); }
+//     console.log("all fields:", newFields);
+//     console.log("created", fields.length, "fields");
+//     process.exit();
+//   });
+//
+// });

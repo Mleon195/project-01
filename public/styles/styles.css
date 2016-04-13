@@ -1,32 +1,43 @@
-/*body {
-    background-color: black;
+body {
+    background-color: gray;
     font-family: Courier;
+    margin-left: 30px;
     color: white;
     font-size:20px;
      }
-.page-header {
-      color: black;
-
-    }
 .page-header h1 {
-  font-size: 2.5em;
-  font-family: fantasy;
-  font-weight: bold;
-}
-*/
+    color: white;
+    text-align: center;
+    font-size: 3.5em;
+    font-family: fantasy;
+    font-weight: bold;
+  }
+
+  .page-header p {
+      color: white;
+      text-align: center;
+      font-weight: bold;
+    }
+
 
 .jumbotron {
-  background-image: url(/images/background1.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #EEE;
-}
+    background-image: url(/images/soccer.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #EEE;
+  }
 .jumbotron .container {
-  height: 350px;
-}
+    height: 350px;
+  }
 
 .inline-header {
-  display: inline-block;
-  vertical-align: baseline;
-  margin-right: 12px;
-}
+    display: inline-block;
+    vertical-align: baseline;
+    margin-right: 12px;
+  }
+textarea {
+    color: black;
+    resize: autoResize;
+    overflow: auto;
+
+  }
