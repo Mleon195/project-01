@@ -10,12 +10,14 @@
  *
  */
 
-   // $.ajax ({
-   //   method: 'GET',
-   //   url: 'api/fields',
-   //   success: renderS,
-   //   error: ajaxError
-   //   });
+
+
+  $.ajax ({
+     method: 'GET',
+     url: 'api/fields',
+     success: renderS,
+     error: ajaxError
+     });
 
 function ajaxError(data){
   console.log("Ajax returned error" + data);
@@ -25,9 +27,9 @@ function renderS(data){
   console.log('rendering data', data);
   var fieldHtml = $('#field-template').html();
   var fieldTemplate = Handlebars.compile(fieldHtml);
-  var html = fieldTemplate({fields: data});
-  console.log(html);
-  $('#fieldShow').prepend(html);
+   htmlTemplate = fieldTemplate({fields: data});
+   console.log(htmlTemplate);
+  $('#field').prepend(htmlTemplate);
 
 }
 // serialize select box in homepage

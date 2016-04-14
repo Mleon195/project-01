@@ -1,7 +1,7 @@
 // SERVER-SIDE JAVASCRIPT
 
 var express = require('express'),
-  database = require('./models'),
+  db = require('./models'),
   app = express();
 
 
@@ -9,7 +9,7 @@ var express = require('express'),
 app.use(express.static(__dirname + '/public'));
 
 //parse incoming data
-var bodyParser =require('body-parser');
+var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -39,10 +39,14 @@ app.get('/second', function homepage(req, res) {
 /* GET ALL FILEDS DB Entries */
 app.get('/api/fields', function sanity(req, res) {
 
-  database.Field.find( {}, function getAllFields(err, allFields){
-    if (err) { return console.log('ERROR', err); }
+  db.Field.find( {}, function getAllFields(err, allFields){
+    if (err) {
+       console.log('ERROR', err);
+     } else {
 
-    res.json(allFields);
+       res.json(allFields);
+       console.log(allFields);
+     }
   });
 
 });
