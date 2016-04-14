@@ -50,63 +50,21 @@ app.get('/api/fields', function sanity(req, res) {
   });
 
 });
-//links to second page
-app.get('/second', function homepage(req, res) {
-  console.log(__dirname);
-  res.sendFile(__dirname + 'views/second.html');
-});
+
 
 //POST /api/reviews
-app.post('/api/reviews', function reviewCreate(req, res){
+app.post('/api/fields', function reviewCreate(req, res){
     console.log('body', req.body);
-    db.Review.create(req.body, function(err, review) {
+    db.Field.create(req.body, function(err, field) {
       if (err){
         console.log('error', err);
       }
-      console.log(review);
-      res.json(review);
+      console.log(field);
+      res.json(field);
     });
 });
 
-//posting to DB
-app.post('/api/entry', function(req, res){
-    var newReview = new db.Review({
-      name: req.body.name,
-      text: req.body.text,
-      date: req.body.date,
-      coach: req.body.text
-    });
-newReview.save(function(err, saved){
-    console.log('test', req.body);
-    res.json(saved);
-  });
-});
 
-
-//UPDATE Review
-app.put('/api/review/:id', function updateReview(req, res){
-  console.log('body', req.body);
-  db.Review.findOne({_id: req.params.id}, function(error, review){
-    if(error) {console.log('error', error); }
-    review.nameField = req.body.nameField;
-    review.textReview = req.body.textReview;
-    review.save(function (error, saved) {
-    if (error) { console.log('Could not update review: ' + error); }
-    res.json(saved);
-          });
-      });
-});
-
-/*
- * JSON API Endpoints
- */
-
-//app.get('/api', controllers.api.index);
-// app.get('/api/field', controllers.field.index);
-// app.get('/api/field/:fieldId', controllers.field.show);
-//app.post('/api/review', controllers.field.create);
-// app.post('/api/review/:reviewId/', controllers.create);
-// app.put('/api/review/:reviewId', controllers.review.update);
 
 
 

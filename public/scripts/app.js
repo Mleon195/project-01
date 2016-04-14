@@ -32,6 +32,16 @@ function renderS(data){
   $('#field').prepend(htmlTemplate);
 
 }
+
+
+
+function postNewFiend (data) {
+  console.log(data, "post success");
+}
+
+function ajaxPostError (data) {
+  console.log(data, "Post Error");
+}
 // serialize select box in homepage
 
 
@@ -91,6 +101,22 @@ $(document).ready(function() {
       renderS(fields);
       addSelectorListner();
   });
+
+
+  $('#submitButton').click( function(e){
+    console.log('submit works');
+    e.preventDefault();
+    var serializedForm = $('.form-horizontal form').serialize();
+    console.log(serializedForm);
+    $.ajax ({
+      method: 'POST',
+      url: 'api/fields',
+      data: serializedForm,
+      // success: postNewField,
+      // error: ajaxPostError
+    });
+  });
+
 
 });
 
