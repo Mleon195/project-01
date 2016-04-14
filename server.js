@@ -1,13 +1,17 @@
 // SERVER-SIDE JAVASCRIPT
 
 var express = require('express'),
-    database = require('./models'),
-    app = express();
+  database = require('./models'),
+  app = express();
 
 
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
 
+//parse incoming data
+var bodyParser =require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 /**********
  * ROUTES *
@@ -16,11 +20,12 @@ app.use(express.static(__dirname + '/public'));
 /*
  * HTML ENDPOINTS
  */
+//Homepage
 app.get('/', function homepage(req, res) {
   console.log(__dirname);
   res.sendFile(__dirname + '/views/index.html');
 });
-//second page to write reviews
+//second page link
 app.get('/second', function homepage(req, res) {
   res.sendFile(__dirname + '/views/second.html');
 });
@@ -44,7 +49,7 @@ app.get('/api/fields', function sanity(req, res) {
 //links to second page
 app.get('/second', function homepage(req, res) {
   console.log(__dirname);
-  res.sendFile(__dirname + ' sviews/second.html');
+  res.sendFile(__dirname + 'views/second.html');
 });
 
 //POST /api/reviews
@@ -58,6 +63,21 @@ app.post('/api/reviews', function reviewCreate(req, res){
       res.json(review);
     });
 });
+
+//posting to DB
+app.post('/api/entry', function(req, res){
+    var newReview = new db.Review({
+      name: req.body.name,
+      text: req.body.text,
+      date: req.body.date,
+      coach: req.body.text
+    });
+newReview.save(function(err, saved){
+    console.log('test', req.body);
+    res.json(saved);
+  });
+});
+
 
 //UPDATE Review
 app.put('/api/review/:id', function updateReview(req, res){
@@ -73,27 +93,16 @@ app.put('/api/review/:id', function updateReview(req, res){
       });
 });
 
-
-
-
-
 /*
  * JSON API Endpoints
  */
 
 //app.get('/api', controllers.api.index);
-
-//app.get('/api/field', controllers.fields.index);
-//app.get('/api/field/:fieldId', controllers.field.show);
-//app.post('/api/albums', controllers.field.create);
-//app.post('/api/albums/:albumId/', controllers..create);
-
-
-
-
-
-
-
+// app.get('/api/field', controllers.field.index);
+// app.get('/api/field/:fieldId', controllers.field.show);
+//app.post('/api/review', controllers.field.create);
+// app.post('/api/review/:reviewId/', controllers.create);
+// app.put('/api/review/:reviewId', controllers.review.update);
 
 
 

@@ -7,9 +7,9 @@ var ReviewSchema = new Schema({
   name: String,
   text: String,
   date: String,
-  coach: Boolean
+  coach: String
 });
 
-var Review = mongoose.model('Review', ReviewSchema);
+var review = mongoose.model('review', ReviewSchema);
 
-module.exports = Review;
+module.exports = review;

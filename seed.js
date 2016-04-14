@@ -9,7 +9,6 @@ var fieldList = [
     condition: 'Excellent',
     surface: 'Grass',
     maintained: 'periodically',
-    bathroom: true,
     parking_lot: true,
     reviews: {
       name: "Pat",
@@ -25,7 +24,6 @@ var fieldList = [
     condition: 'Poor',
     surface: 'grass',
     maintained: 'frequenly',
-    bathroom: true,
     parking_lot: true,
     reviews: {
       name: "George",
@@ -41,7 +39,6 @@ var fieldList = [
     condition: 'Poor',
     surface: 'grass',
     maintained: 'frequenly',
-    bathroom: true,
     parking_lot: true,
     reviews: {
       name: "Paul",
@@ -57,7 +54,6 @@ var fieldList = [
     condition: 'dry',
     surface: 'hard-grass',
     maintained: 'periodically',
-    bathroom: false,
     parking_lot: false,
     reviews: {
       name: "Roni",
@@ -73,7 +69,6 @@ var fieldList = [
     condition: 'Excellent',
     surface: 'turf',
     maintained: 'regularly',
-    bathroom: false,
     parking_lot: false,
     reviews: {
       name: "Pat",
@@ -89,7 +84,6 @@ var fieldList = [
     condition: 'Excellent',
     surface: 'turf',
     maintain: 'rarely',
-    bathroom: true,
     parking_lot: false,
     reviews: {
       name: "Pat",
@@ -99,6 +93,8 @@ var fieldList = [
     }
   }
 ];
+
+
 
 
 db.Field.remove({}, function(err, fields){

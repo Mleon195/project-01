@@ -53,35 +53,40 @@
                 </div>
               </div>
 
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-3 control-label" for="review_name">Date</label>
+                <div class="col-md-8">
+                  <input id="date" name="review_name" type="text" class="form-control input-md" required>
+                </div>
+              </div>
+
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-3 control-label" for="review_name">Coach</label>
+                <div class="col-md-8">
+                  <input id="coach" name="review_name" type="text" class="form-control input-md" required>
+                </div>
+              </div>
+
 
 
               <!-- Buttonsn -->
-              <div class="form-group">
-                <label class="col-md-3 control-label" for="singlebutton"></label>
-                <div class="col-md-7">
-                  <button id="singlebutton" name="singlebutton" class="btn btn-primary">Submit Review</button>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-3 control-label" for="singlebutton"></label>
-                <div class="col-md-7">
-                  <button id="singlebutton" name="singlebutton" class="btn btn-primary">Edit Review</button>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-3 control-label" for="singlebutton"></label>
-                <div class="col-md-7">
-                  <button id="singlebutton" name="singlebutton" class="btn btn-default dropdown-toggle">Delete Review</button>
-                </div>
-              </div>
-            </fieldset>
+  <div class="form-group">
+  <div class="container">
+  <h2>Seletions</h2>
+  <button type="button" class="btn btn-primary">Submit</button>
+  <button type="button" class="btn btn-primary">Update</button>
+  <button type="button" class="btn btn-primary">Delete</button>
+
+</div>
           </form>
         </div>
       </div>
     </section>
 
      <!--   END FORM SAMPLE -->
-
 
 
          <section class="container">
@@ -94,40 +99,41 @@
            <div id='reviews'>
              <script id='info-template' type='text/x-handlebars-template'>
                <!-- on -->
-               <div class="row album" data-review-id="{{_id}}">
-
+               <div class="row review" data-review-id="{{_id}}">
                  <div class="col-md-10 col-md-offset-1">
                    <div class="panel panel-default">
                      <div class="panel-body">
 
 
                      <!-- begin Review internal row -->
-                       <div class='row'>
-
+<div id="entry">
+  <script id='field-template' type='text/x-handlebars-template'>
+                      <div class='row'>
                           <div class="col-md-9 col-xs-12">
                            <ul class="list-group">
                              <li class="list-group-item">
                                <h4 class='inline-header'>Review:</h4>
-                               <span class='album-name'>{{name}}</span>
+                               <span class='field-name'>{{name}}</span>
                              </li>
 
                              <li class="list-group-item">
                                <h4 class='inline-header'>Your Review:</h4>
-                               <span class='artist-name'>{{text}}</span>
+                               <span class='text-name'>{{text}}</span>
                              </li>
                              <li class="list-group-item">
                                <h4 class='inline-header'>Date:</h4>
-                               <span class='artist-name'>{{date}}</span>
+                               <span class='date'>{{date}}</span>
                              </li>
                              <li class="list-group-item">
                                <h4 class='inline-header'>Coach:</h4>
-                               <span class='artist-name'>{{Coach}}</span>
+                               <span class='coach-name'>{{Coach}}</span>
                              </li>
                            </ul>
                          </div>
-
+                       </script>
                        </div>
-                       <!-- end of album internal row -->
+</div>
+                       <!-- end of entry internal row -->
 
 
 
