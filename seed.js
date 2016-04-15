@@ -10,12 +10,12 @@ var fieldList = [
     surface: 'Grass',
     maintained: 'periodically',
     parking_lot: true,
-    reviews: {
+    reviews: [{
       name: "Pat",
       text: "good",
       date: "4/4",
       coach: false
-    }
+    }]
 },
   {
     name: 'Rossi Playground',
@@ -25,12 +25,12 @@ var fieldList = [
     surface: 'grass',
     maintained: 'frequenly',
     parking_lot: true,
-    reviews: {
+    reviews: [{
       name: "George",
       text: "grass super wet",
       date: "4/14",
       coach: true
-    }
+    }]
   },
   {
     name: 'Beach Chalet',
@@ -40,12 +40,12 @@ var fieldList = [
     surface: 'grass',
     maintained: 'frequenly',
     parking_lot: true,
-    reviews: {
+    reviews: [{
       name: "Paul",
       text: "grass super short",
       date: "4/8",
       coach: true
-    }
+    }]
   },
   {
     name: 'Grattan',
@@ -55,12 +55,12 @@ var fieldList = [
     surface: 'hard-grass',
     maintained: 'periodically',
     parking_lot: false,
-    reviews: {
+    reviews: [{
       name: "Roni",
       text: "community activity nerby, parking hell",
       date: "4/12",
       coach: false
-    }
+    }]
   },
   {
     name: 'Garfield',
@@ -70,12 +70,12 @@ var fieldList = [
     surface: 'turf',
     maintained: 'regularly',
     parking_lot: false,
-    reviews: {
+    reviews: [{
       name: "Pat",
       text: "parking lot full",
       date: "4/4",
       coach: true
-    }
+    }]
   },
   {
     name: 'West Sunset',
@@ -85,12 +85,12 @@ var fieldList = [
     surface: 'turf',
     maintain: 'rarely',
     parking_lot: false,
-    reviews: {
+    reviews: [{
       name: "Pat",
       text: "no very good",
       date: "4/4",
       coach: false
-    }
+    }]
   }
 ];
 

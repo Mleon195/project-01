@@ -10,8 +10,6 @@
  *
  */
 
-
-
   $.ajax ({
      method: 'GET',
      url: 'api/fields',
@@ -25,17 +23,16 @@ function ajaxError(data){
 
 function renderS(data){
   console.log('rendering data', data);
+
   var fieldHtml = $('#field-template').html();
   var fieldTemplate = Handlebars.compile(fieldHtml);
-   htmlTemplate = fieldTemplate({fields: data});
+  var htmlTemplate = fieldTemplate({fields: data});
    console.log(htmlTemplate);
   $('#field').prepend(htmlTemplate);
 
 }
 
-
-
-function postNewFiend (data) {
+function postNewField (data) {
   console.log(data, "post success");
 }
 
@@ -94,7 +91,12 @@ function renderReviews(review){
 }
 
 var fieldList;
+
+
 $(document).ready(function() {
+
+
+
   console.log('app.js loaded!');
   $.get('/api/fields').success(function (fields){
       fieldList = fields;
@@ -103,19 +105,57 @@ $(document).ready(function() {
   });
 
 
-  $('#submitButton').click( function(e){
+  // $('#submitButton').click( function(e){
+  //   console.log('submit works');
+  //   e.preventDefault();
+  //   var serializedForm = $('.form-horizontal form').serialize();
+  //   console.log("logging the serialized data, " , serializedForm);
+  //   $.ajax ({
+  //     method: 'POST',
+  //     url: 'api/fields',
+  //     data: serializedForm,
+  //     success: postNewField,
+  //     error: ajaxPostError
+  //   });
+  // });
+
+
+  $('.form-horizontal form').on('submit', function(e){
     console.log('submit works');
     e.preventDefault();
-    var serializedForm = $('.form-horizontal form').serialize();
-    console.log(serializedForm);
+    var serializedForm = $(this).serialize();
+    console.log("logging the serialized data, " , serializedForm);
     $.ajax ({
       method: 'POST',
       url: 'api/fields',
       data: serializedForm,
-      // success: postNewField,
-      // error: ajaxPostError
+      success: postNewField,
+      error: ajaxPostError
     });
   });
+  //delete reviews
+  $('#reviews').on('click', '.delete-album', function(e){
+       e.preventDefault();
+       var id = $(this).closest('.review').data('review-id');
+       console.log("id: ",id);
+         $.ajax({
+         method: 'DELETE',
+         url: '/api/review/' + id,
+         success: handleDeleteAlbumSuccess,
+         error: handleDeleteAlbumError
+         });
+     });
+     function handleDeleteReviewSuccess(){
+        console.log(review);
+        console.log(review._id);
+        $('div').find("[data-review-id='" + review._id + "']").remove();
+      }
+
+      function handleDeleteAlbumError(json){
+        console.log(json);
+      }
+
+
 
 
 });

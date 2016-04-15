@@ -11,19 +11,7 @@
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
  <link rel="stylesheet" href="styles/styles.css">
 
- <!-- VENDOR SCRIPTS -->
- <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous">
-   < /script
 
-   < script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" >
- </script>
-
- <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
-
-<script src="scripts/seed.js"></script>
-
- <!-- APPLICATION SCRIPTS -->
- <script src="scripts/app.js"></script>
 </head>
 
 <body>
@@ -39,15 +27,17 @@
 
     <!-- Text for Reviews    -->
 
-       <div id="text-review"><p>Read reviews for Soccer Fields.</p>
+       <div id="text-review"><h3>Read reviews for Soccer Fields.<hr></h3>
 
       <div id="field">
           <script id='field-template' type='text/x-handlebars-template'>
             <div id='fieldShow'>
                 {{#each fields}}
-              <h2>
-                {{name}} ASDASDASD
-              </h2>
+              <p> Name: {{name}}</p>
+                   {{#each reviews}}
+                      Coach: {{name}}, wrote:
+                      {{text}}
+                    {{/each}}
                 {{/each}}
             </div>
         </script>
@@ -75,5 +65,17 @@
   </div>
 
 </body>
+<!-- VENDOR SCRIPTS -->
+<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous">
+  </script>
 
+  <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+
+<script src="scripts/seed.js"></script>
+
+<!-- APPLICATION SCRIPTS -->
+<script src="scripts/app.js"></script>
 </html>
